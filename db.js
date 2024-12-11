@@ -1,8 +1,9 @@
 const mongoose = require("mongoose");
+require('dotenv').config()
 
-const mongoURL = "mongodb://localhost:27017/restaurant";
+const mongoDB_URL = process.env.MONGODB_URL_LOCAL;
 
-mongoose.connect(mongoURL, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(mongoDB_URL, { useNewUrlParser: true, useUnifiedTopology: true });
 
 const db = mongoose.connection ; 
 
