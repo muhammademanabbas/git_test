@@ -12,7 +12,7 @@ app.get('/', function (req, res) {
   res.send('Hotel Management Server is Running!')
 })
 
-
+// app is listening on port 3000
 app.listen(3000 , ()=>{
     console.log('Server is running on port 3000!')
 })
