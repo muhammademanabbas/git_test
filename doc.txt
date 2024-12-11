@@ -1,0 +1,5 @@
+-install mongoodb  , mongo shell  , mongo shell (CRUD Queries)
+-making server using express 
+-testing server endpoints on POSTman
+-mongo db connection with nodejs
+-schema --blueprint of our database collection
