@@ -1,15 +1,20 @@
 const express = require('express')
 const db  = require('./db')
 var bodyParser = require('body-parser')
-const router =   require('./routes/PersonRoutes');
+const PersonRoutes =   require('./routes/PersonRoutes');
 const app = express()
 require('dotenv').config()
+const passport  = require('./auth')
 
 app.use(bodyParser.json()) // middleware
-app.use('/person',router);
+app.use(passport.initialize()) // middleware
 
-app.get('/', function (req, res) {
-  res.send('Hotel Management Server is Running!')
+
+const localAuthMiddleware = passport.authenticate('local', {session: false})
+app.use('/person',localAuthMiddleware,PersonRoutes)
+
+app.get('/',function (req, res) {
+  res.send('<b>Hotel Management Server is Running!</b>')
 })
 
 
